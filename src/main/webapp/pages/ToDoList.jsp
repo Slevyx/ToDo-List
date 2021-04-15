@@ -26,16 +26,20 @@
 					<c:forEach items="${toDoList}" var="toDo">
 						<div class="toDo">
 							<div>${toDo.id + 1}</div>
-							<div>
+							<div class="description-container">
 								<c:choose>
 								<c:when test="${toDo.modified}">
-									<form autocomplete="off" action="/ToDoList/ModifyToDo">
+									<form autocomplete="off" action="/ToDoList/ModifyToDo" method="POST">
 										<input type="text" name="modify" value="${toDo.description}">
 										<input type="submit" value="Submit Changes">
 									</form>
 								</c:when>
 								<c:otherwise>
-									<div class="description-field"><div class="${toDo.done ? 'done' : ''}">${toDo.description}</div><a href="/ToDoList/AllowModifies?id=${toDo.id}"><img src="${pageContext.request.contextPath}/img/modify.png" alt="Modify" width="40"></a></div>
+									<div class="${toDo.done ? 'done' : ''}">${toDo.description}</div>
+									<a href="/ToDoList/AllowModifies?id=${toDo.id}"> <img
+										src="${pageContext.request.contextPath}/img/modify.png"
+										alt="Modify" width="40">
+									</a>
 								</c:otherwise>
 								</c:choose>
 							</div>

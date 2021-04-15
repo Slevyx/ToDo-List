@@ -49,6 +49,8 @@ public class ToDoDaoImpl implements IToDoDao{
 	@Override
 	public void setDoneUndone(List<ToDo> toDoList, Integer id) {
 		ToDo toDo = toDoList.get(id);
-		toDo.setDone(!toDo.getDone());
+		if(!toDo.getModified()) {
+			toDo.setDone(!toDo.getDone());
+		}
 	}
 }

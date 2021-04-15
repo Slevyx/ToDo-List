@@ -19,7 +19,7 @@ public class ModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 	@SuppressWarnings("unchecked")
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String modifiedDescription = request.getParameter("modify");
 		IToDoDao toDoDao = new ToDoDaoImpl();
 		HttpSession session = request.getSession();
