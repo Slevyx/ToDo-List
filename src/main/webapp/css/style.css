@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+
+body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: fantasy;
+	font-size: 16px;
+}
+
+.header form{
+	display: flex;
+}
+
+.header::before{
+	content: "To Do List";
+	font-size: 32px;
+	color: white;
+}
+
+.header{
+	width: 75%;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #FF2C21;
+}
+
+.header input[type=text]{
+	width: 75%;
+}
+
+.header input[type=button]{
+	width: 25%;
+}
+
+.toDoList{
+	width: 85%;
+	list-style-type: none;
+}
+
+.toDo{
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.toDo:nth-child(even){
+	background-color: #FFF724;
+}
+
+.toDo:nth-child(odd){
+	background-color: #FF6124;
+}
+
+.done {
+	text-decoration: line-through;
+}
+
+.description-field {
+	display: flex;
+	font-size: 24px;
+}
+
