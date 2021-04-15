@@ -23,7 +23,7 @@ public class AddServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String toDoDescription = request.getParameter("toDo");
 		ToDo toDo = null;
-		Integer id;
+		int id;
 		IToDoDao toDoDao = new ToDoDaoImpl();
 		HttpSession session = request.getSession();
 		List<ToDo> toDoList = (List<ToDo>) session.getAttribute("toDoList") != null ? (List<ToDo>) session.getAttribute("toDoList") : new ArrayList<>();

@@ -28,7 +28,7 @@ public class DeleteServlet extends HttpServlet {
 			request.setAttribute("error", "Cannot Delete Null ToDo.");
 		}
 		else {
-			toDoList = toDoDao.deleteToDo(Integer.parseInt(id), toDoList);
+			toDoDao.deleteToDo(Integer.parseInt(id), toDoList);
 		}
 		session.setAttribute("toDoList", toDoList);
 		request.getRequestDispatcher("pages/ToDoList.jsp").forward(request, response);

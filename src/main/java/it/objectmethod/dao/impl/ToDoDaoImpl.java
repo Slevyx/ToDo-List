@@ -9,7 +9,7 @@ import it.objectmethod.models.ToDo;
 public class ToDoDaoImpl implements IToDoDao{
 
 	@Override
-	public ToDo addToDo(Integer id, String description) {
+	public ToDo addToDo(int id, String description) {
 		ToDo toDo = new ToDo();
 		toDo.setId(id);
 		toDo.setDescription(description);
@@ -19,16 +19,15 @@ public class ToDoDaoImpl implements IToDoDao{
 	}
 
 	@Override
-	public List<ToDo> deleteToDo(Integer id, List<ToDo> toDoList) {
-		List<ToDo> filteredList = toDoList.stream().filter(toDo -> toDo.getId() != id).collect(Collectors.toList());
-		for(int i = 0; i < filteredList.size(); i++) {
-			filteredList.get(i).setId(i);
+	public void deleteToDo(int id, List<ToDo> toDoList) {
+		toDoList.remove(id);
+		for(int i = 0; i < toDoList.size(); i++) {
+			toDoList.get(i).setId(i);
 		}
-		return filteredList;
 	}
 
 	@Override
-	public void allowModifies(List<ToDo> toDoList, Integer id) {
+	public void allowModifies(List<ToDo> toDoList, int id) {
 		for(ToDo toDo : toDoList) {
 			if(toDo.getId() == id && !toDo.getDone()) {
 				toDo.setModified(true);
@@ -40,14 +39,14 @@ public class ToDoDaoImpl implements IToDoDao{
 	}
 
 	@Override
-	public void modifyToDo(List<ToDo> toDoList, Integer id, String modifiedDescription) {
+	public void modifyToDo(List<ToDo> toDoList, int id, String modifiedDescription) {
 		ToDo toDo = toDoList.get(id);
 		toDo.setModified(false);
 		toDo.setDescription(modifiedDescription);
 	}
 
 	@Override
-	public void setDoneUndone(List<ToDo> toDoList, Integer id) {
+	public void setDoneUndone(List<ToDo> toDoList, int id) {
 		ToDo toDo = toDoList.get(id);
 		if(!toDo.getModified()) {
 			toDo.setDone(!toDo.getDone());
